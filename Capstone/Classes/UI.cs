@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -21,31 +22,19 @@ namespace Capstone.Classes
             if (choice == "1")
             {
                 Console.WriteLine(thisMachine.DisplayVendingMachineItems(InputFile));
+                Purchase(thisMachine);
             }
             else if (choice == "2")
             {
                 Purchase(thisMachine);
-
             }
             else
             {
-                // 
+                Exit();
             }
         }
 
-        //public string DisplayMenu()
-        //{
-        //    string choice = "";
-        //    do
-        //    {
-        //        Console.WriteLine("Please select from the following:");
-        //        Console.WriteLine(MainMenu);
-        //        choice = Console.ReadLine();
-        //    } while (choice != "1" && choice != "2" && choice != "3");
-        //    return choice;
-        //}
-
-        public void Purchase(Machine machine)
+        public string Purchase(Machine machine)
         {
             Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
             string purchaseChoice = GetChoice(PurchaseMenu);
@@ -53,7 +42,7 @@ namespace Capstone.Classes
             if (purchaseChoice == "1")
             {
                 GetMoney(machine);
-               
+
             }
             else if (purchaseChoice == "2")
             {
@@ -61,24 +50,15 @@ namespace Capstone.Classes
             }
             else
             {
-                //FINISH TRANSACTION METHOD:
-                // check how much is in CMP
-                // do math to find out how much change to leave
-                int change = (int)(machine.CurrentMoneyProvided * 100);
-                int quarters = change / 25;
-                change = change % 25;
-                int dimes = change / 10;
-                change = change % 10;
-                int nickels = change % 5;
-                Console.WriteLine($"Your change is {quarters} quarters, {dimes} dimes, and {nickels} nickels");
-                machine.CurrentMoneyProvided = 0.00M;
-                //DisplayMenu();
-                GetChoice(MainMenu);
+                GiveChange(machine);
             }
+
+            return purchaseChoice;
         }
 
         public decimal GetMoney(Machine machine)
         {
+            decimal amountBefore = machine.CurrentMoneyProvided;
             string choice = "";
             int moneyFedInt = 0;
             decimal moneyFedDecimal = 0.00M;
@@ -97,6 +77,9 @@ namespace Capstone.Classes
                 }
                 moneyFedDecimal = (decimal)moneyFedInt;
                 machine.CurrentMoneyProvided += moneyFedDecimal;
+                decimal amountAfter = machine.CurrentMoneyProvided;
+                string logEntry = $"FEED MONEY: {amountBefore} {amountAfter}";
+                Log.WriteLog(logEntry);
                 Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
                 choice = GetChoice(PurchaseMenu);
             }
@@ -105,9 +88,9 @@ namespace Capstone.Classes
             {
                 SelectProduct(machine);
             }
-            if(choice == "3")
+            if (choice == "3")
             {
-                //call finishTransaction method
+                GiveChange(machine);
             }
             return moneyFedDecimal;
 
@@ -130,35 +113,46 @@ namespace Capstone.Classes
             return choice;
         }
 
-        public void SelectProduct(Machine machine)
+        public bool SelectProduct(Machine machine)
         {
-            machine.ReadInventoryInput(InputFile);
+            Console.WriteLine(machine.DisplayVendingMachineItems(InputFile));
             if (machine.CurrentMoneyProvided <= 0.00M)
             {
                 Console.WriteLine("Current balance is $0.00. Please add more money.");
                 GetMoney(machine);
             }
-            machine.ReadInventoryInput(InputFile);
+            machine.DisplayVendingMachineItems(InputFile);
             string selection = GetItemCode(machine);
-            //string itemName = machine.VendingMachineItems[selection].Name;
             Dispense(machine, selection);
             Purchase(machine);
+            return true;
         }
 
         public string GetItemCode(Machine machine)
         {
             Console.WriteLine("Please enter a code to select an item");
             string selection = Console.ReadLine();
-            string itemName = machine.VendingMachineItems[selection].Name;
+            string itemName = "";
+            try
+            {
+                itemName = machine.VendingMachineItems[selection].Name;
+            }
+            catch (KeyNotFoundException)
+            {
+                Console.WriteLine("Invalid input. Try again.");
+                SelectProduct(machine);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Something went wrong. Please try again");
+                SelectProduct(machine);
+            }
             do
             {
-                if (!machine.VendingMachineItems.ContainsKey(selection))
-                {
-                    Console.WriteLine("Invalid input. Try again.");
-                }
-                else if (machine.Inventory[itemName] == 0)
+                if (machine.Inventory[itemName] == 0)
                 {
                     Console.WriteLine("That item is sold out. Please select a different item.");
+                    SelectProduct(machine);
                 }
             }
             while (!machine.VendingMachineItems.ContainsKey(selection) || machine.Inventory[itemName] == 0);
@@ -167,17 +161,45 @@ namespace Capstone.Classes
 
         public bool Dispense(Machine machine, string itemCode)
         {
-            bool isDispensed = false;
+            decimal amountBefore = machine.CurrentMoneyProvided;
             string itemName = machine.VendingMachineItems[itemCode].Name;
             decimal cost = machine.VendingMachineItems[itemCode].Price;
+            if (machine.CurrentMoneyProvided < cost)
+            {
+                Console.WriteLine("You do not have enough money to purchase this item.");
+                GetMoney(machine);
+            }
             machine.CurrentMoneyProvided -= cost;
             machine.Inventory[itemName] -= 1;
-            Console.WriteLine(machine.Inventory[itemName]);
-            string messageToCustomer = $"Item: " + itemName + "\nPrice: " + cost + "\nMoney remaining: " + machine.CurrentMoneyProvided + 
+            decimal amountAfter = machine.CurrentMoneyProvided;
+            string logEntry = $"{itemName} {itemCode} {amountBefore} {amountAfter}";
+            string messageToCustomer = $"Item: " + itemName + "\nPrice: " + cost + "\nMoney remaining: " + machine.CurrentMoneyProvided +
                 "\n" + machine.VendingMachineItems[itemCode].PrintMessage();
             Console.WriteLine(messageToCustomer);
-            isDispensed = true;
-            return isDispensed;
+            return true;
+        }
+
+        public bool GiveChange(Machine machine)
+        {
+            decimal amountBefore = machine.CurrentMoneyProvided;
+            int change = (int)(machine.CurrentMoneyProvided * 100);
+            int quarters = change / 25;
+            change = change % 25;
+            int dimes = change / 10;
+            change = change % 10;
+            int nickels = change % 5;
+            string changeMessage = $"Your change is {quarters} quarters, {dimes} dimes, and {nickels} nickels";
+            Console.WriteLine(changeMessage);
+            machine.CurrentMoneyProvided = 0.00M;
+            decimal amountAfter = machine.CurrentMoneyProvided;
+            string logEntry = $"GIVE CHANGE {amountBefore} {amountAfter}";
+            Exit();
+            return true;
+        }
+
+        public void Exit()
+        {
+            return;
         }
 
     }
