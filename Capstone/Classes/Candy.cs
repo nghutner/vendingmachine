@@ -9,5 +9,10 @@ namespace Capstone.Classes
         public Candy(string name, decimal price) : base(name, price)
         {
         }
+
+        public override string PrintMessage()
+        {
+            return "Munch, Munch, Yum!";
+        }
     }
 }

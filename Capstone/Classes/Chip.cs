@@ -9,5 +9,10 @@ namespace Capstone.Classes
         public Chip(string name, decimal price) : base(name, price)
         {
         }
+
+        public override string PrintMessage()
+        {
+            return "Crunch Crunch, Yum!";
+        }
     }
 }

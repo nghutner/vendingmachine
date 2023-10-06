@@ -86,6 +86,10 @@ namespace Capstone.Classes
                             string line = sr.ReadLine();
                             string[] lineArray = line.Split('|');
                             string displayLine = $"{line}|In Stock: {Inventory[lineArray[1]]} \n";
+                            if (Inventory[lineArray[1]] == 0)
+                            {
+                                displayLine += "| SOLD OUT";
+                            }
                             allItems += displayLine;
                         }
                         catch

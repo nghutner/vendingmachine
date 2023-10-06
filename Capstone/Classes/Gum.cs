@@ -9,5 +9,10 @@ namespace Capstone.Classes
         public Gum(string name, decimal price) : base(name, price)
         {
         }
+
+        public override string PrintMessage()
+        {
+            return "Chew Chew, Yum!";
+        }
     }
 }

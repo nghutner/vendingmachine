@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Capstone.Classes
@@ -8,6 +10,11 @@ namespace Capstone.Classes
     {
         public Drink(string name, decimal price) : base(name, price)
         {
+        }
+
+        public override string PrintMessage()
+        {
+            return "Glug Glug, Yum!";
         }
     }
 }

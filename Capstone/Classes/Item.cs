@@ -10,10 +10,14 @@ namespace Capstone.Classes
         public decimal Price { get; set; }
         public int Quantity { get; set; } = 5;
 
-        public Item (string name, decimal price)
+        public Item(string name, decimal price)
         {
             Name = name;
             Price = price;
         }
+
+        public abstract string PrintMessage();
+
     }
+
 }
