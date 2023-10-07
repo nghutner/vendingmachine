@@ -16,6 +16,7 @@ namespace CapstoneTests.Tests
         {
             // Arrange
             Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
 
         }
 
@@ -26,7 +27,7 @@ namespace CapstoneTests.Tests
 
             // Arrange
             Machine sut = new Machine();
-
+            
 
             // Act
             
