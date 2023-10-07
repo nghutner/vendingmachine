@@ -71,7 +71,7 @@ namespace Capstone.Classes
                     string moneyFed = Console.ReadLine();
                     moneyFedInt = int.Parse(moneyFed);
                 }
-                catch
+                catch (Exception)
                 {
 
                 }
@@ -113,7 +113,7 @@ namespace Capstone.Classes
             return choice;
         }
 
-        public bool SelectProduct(Machine machine)
+        public string SelectProduct(Machine machine)
         {
             Console.WriteLine(machine.DisplayVendingMachineItems(InputFile));
             if (machine.CurrentMoneyProvided <= 0.00M)
@@ -125,7 +125,7 @@ namespace Capstone.Classes
             string selection = GetItemCode(machine);
             Dispense(machine, selection);
             Purchase(machine);
-            return true;
+            return selection;
         }
 
         public string GetItemCode(Machine machine)
@@ -159,7 +159,7 @@ namespace Capstone.Classes
             return selection;
         }
 
-        public bool Dispense(Machine machine, string itemCode)
+        public string Dispense(Machine machine, string itemCode)
         {
             decimal amountBefore = machine.CurrentMoneyProvided;
             string itemName = machine.VendingMachineItems[itemCode].Name;
@@ -173,13 +173,14 @@ namespace Capstone.Classes
             machine.Inventory[itemName] -= 1;
             decimal amountAfter = machine.CurrentMoneyProvided;
             string logEntry = $"{itemName} {itemCode} {amountBefore} {amountAfter}";
+            Log.WriteLog(logEntry);
             string messageToCustomer = $"Item: " + itemName + "\nPrice: " + cost + "\nMoney remaining: " + machine.CurrentMoneyProvided +
                 "\n" + machine.VendingMachineItems[itemCode].PrintMessage();
             Console.WriteLine(messageToCustomer);
-            return true;
+            return messageToCustomer;
         }
 
-        public bool GiveChange(Machine machine)
+        public decimal GiveChange(Machine machine)
         {
             decimal amountBefore = machine.CurrentMoneyProvided;
             int change = (int)(machine.CurrentMoneyProvided * 100);
@@ -193,8 +194,9 @@ namespace Capstone.Classes
             machine.CurrentMoneyProvided = 0.00M;
             decimal amountAfter = machine.CurrentMoneyProvided;
             string logEntry = $"GIVE CHANGE {amountBefore} {amountAfter}";
+            Log.WriteLog(logEntry);
             Exit();
-            return true;
+            return machine.CurrentMoneyProvided;
         }
 
         public void Exit()
