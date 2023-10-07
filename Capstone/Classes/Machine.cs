@@ -48,6 +48,10 @@ namespace Capstone.Classes
 
         public Dictionary<string, Item> AddToDictionary(string[] menuItemLine)
         {
+            if (menuItemLine.Length != 4)
+            {
+                throw new InvalidArrayLengthException();
+            }
             VendingMachineItems[menuItemLine[0]] = null;
             Inventory[menuItemLine[1]] = MaxQuantity;
             if (menuItemLine[menuItemLine.Length - 1] == "Chip")
