@@ -26,8 +26,10 @@ namespace Capstone.Classes
                         {
                             string line = sr.ReadLine();
                             string[] inventoryInfo = line.Split('|');
-                            AddToDictionary(inventoryInfo);
-                            
+                            if (inventoryInfo != null && inventoryInfo.Length == 4)
+                            {
+                                AddToDictionary(inventoryInfo);
+                            }
                         }
                         catch (Exception)
                         {
@@ -48,10 +50,6 @@ namespace Capstone.Classes
 
         public Dictionary<string, Item> AddToDictionary(string[] menuItemLine)
         {
-            if (menuItemLine.Length != 4)
-            {
-                throw new InvalidArrayLengthException();
-            }
             VendingMachineItems[menuItemLine[0]] = null;
             Inventory[menuItemLine[1]] = MaxQuantity;
             if (menuItemLine[menuItemLine.Length - 1] == "Chip")
