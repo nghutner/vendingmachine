@@ -18,5 +18,20 @@ namespace CapstoneTests.Tests
             Machine sut = new Machine();
 
         }
+
+        [TestMethod]
+
+        public void AddToDictionaryHappyPaths()
+        {
+
+            // Arrange
+            Machine sut = new Machine();
+
+
+            // Act
+            
+
+            // Assert
+        }
     }
 }
