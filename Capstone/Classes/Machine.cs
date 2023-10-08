@@ -10,6 +10,7 @@ namespace Capstone.Classes
     {
         const int MaxQuantity = 5;
         public const string InputFile = "vendingmachine.csv";
+        public string[] Slots = { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4" };
 
         public Dictionary<string, Item> VendingMachineItems { get; set; } = new Dictionary<string, Item>();
         public Dictionary<string, int> Inventory { get; set; } = new Dictionary<string, int>();
@@ -26,13 +27,19 @@ namespace Capstone.Classes
                         {
                             string line = sr.ReadLine();
                             string[] inventoryInfo = line.Split('|');
-                            if (inventoryInfo != null && inventoryInfo.Length == 4)
+                            if (
+                                inventoryInfo != null &&
+                                inventoryInfo.Length == 4 &&
+                                Slots.Contains(inventoryInfo[0]) &&
+                                !inventoryInfo.Contains("") &&
+                                !inventoryInfo.Contains(null))
                             {
                                 AddToDictionary(inventoryInfo);
                             }
                         }
                         catch (Exception)
                         {
+
                         }
                     }
                 }
@@ -52,25 +59,37 @@ namespace Capstone.Classes
         {
             VendingMachineItems[menuItemLine[0]] = null;
             Inventory[menuItemLine[1]] = MaxQuantity;
-            if (menuItemLine[menuItemLine.Length - 1] == "Chip")
+            try
             {
-                Chip newChip = new Chip(menuItemLine[1], decimal.Parse(menuItemLine[2]));
-                VendingMachineItems[menuItemLine[0]] = newChip;
+                decimal price = decimal.Parse(menuItemLine[2]);
+                if (price < 0.00M)
+                {
+
+                }
+                else if (menuItemLine[menuItemLine.Length - 1] == "Chip")
+                {
+                    Chip newChip = new Chip(menuItemLine[1], price);
+                    VendingMachineItems[menuItemLine[0]] = newChip;
+                }
+                else if (menuItemLine[menuItemLine.Length - 1] == "Candy")
+                {
+                    Candy newCandy = new Candy(menuItemLine[1], price);
+                    VendingMachineItems[menuItemLine[0]] = newCandy;
+                }
+                else if (menuItemLine[menuItemLine.Length - 1] == "Gum")
+                {
+                    Gum newGum = new Gum(menuItemLine[1], price);
+                    VendingMachineItems[menuItemLine[0]] = newGum;
+                }
+                else if (menuItemLine[menuItemLine.Length - 1] == "Drink")
+                {
+                    Drink newDrink = new Drink(menuItemLine[1], price);
+                    VendingMachineItems[menuItemLine[0]] = newDrink;
+                }
             }
-            else if (menuItemLine[menuItemLine.Length - 1] == "Candy")
+            catch (Exception)
             {
-                Candy newCandy = new Candy(menuItemLine[1], decimal.Parse(menuItemLine[2]));
-                VendingMachineItems[menuItemLine[0]] = newCandy;
-            }
-            else if (menuItemLine[menuItemLine.Length - 1] == "Gum")
-            {
-                Gum newGum = new Gum(menuItemLine[1], decimal.Parse(menuItemLine[2]));
-                VendingMachineItems[menuItemLine[0]] = newGum;
-            }
-            else if (menuItemLine[menuItemLine.Length - 1] == "Drink")
-            {
-                Drink newDrink = new Drink(menuItemLine[1], decimal.Parse(menuItemLine[2]));
-                VendingMachineItems[menuItemLine[0]] = newDrink;
+
             }
             return VendingMachineItems;
         }
