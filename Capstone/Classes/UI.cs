@@ -58,7 +58,6 @@ namespace Capstone.Classes
 
         public decimal GetMoney(Machine machine)
         {
-            decimal amountBefore = machine.CurrentMoneyProvided;
             string choice = "";
             int moneyFedInt = 0;
             decimal moneyFedDecimal = 0.00M;
@@ -71,17 +70,29 @@ namespace Capstone.Classes
                     string moneyFed = Console.ReadLine();
                     moneyFedInt = int.Parse(moneyFed);
                 }
+                catch (FormatException) 
+                {
+                }
                 catch (Exception)
                 {
-
+                    Console.WriteLine("Sorry, an error occurred."); 
                 }
-                moneyFedDecimal = (decimal)moneyFedInt;
-                machine.CurrentMoneyProvided += moneyFedDecimal;
-                decimal amountAfter = machine.CurrentMoneyProvided;
-                string logEntry = $"FEED MONEY: {amountBefore} {amountAfter}";
-                Log.WriteLog(logEntry);
-                Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
-                choice = GetChoice(PurchaseMenu);
+                if(moneyFedInt <= 0)   //negative or no valid input- go back to the top of the loop
+                {
+                    Console.WriteLine("Invalid input.");
+                    choice = "1";
+                }
+                else   //valid money input
+                {
+                    moneyFedDecimal = (decimal)moneyFedInt;
+                    machine.CurrentMoneyProvided += moneyFedDecimal;
+                    decimal amountAfter = machine.CurrentMoneyProvided;
+                    string logEntry = $"FEED MONEY: {moneyFedDecimal} {amountAfter}";
+                    Log.WriteLog(logEntry);
+                    Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
+                    choice = GetChoice(PurchaseMenu);
+                }
+                
             }
             while (choice == "1");
             if (choice == "2")
@@ -135,6 +146,7 @@ namespace Capstone.Classes
             string itemName = "";
             try
             {
+                selection = selection.Substring(0, 1).ToUpper() + selection.Substring(1); //for case insensitivity
                 itemName = machine.VendingMachineItems[selection].Name;
             }
             catch (KeyNotFoundException)
@@ -161,7 +173,6 @@ namespace Capstone.Classes
 
         public string Dispense(Machine machine, string itemCode)
         {
-            decimal amountBefore = machine.CurrentMoneyProvided;
             string itemName = machine.VendingMachineItems[itemCode].Name;
             decimal cost = machine.VendingMachineItems[itemCode].Price;
             if (machine.CurrentMoneyProvided < cost)
@@ -172,7 +183,7 @@ namespace Capstone.Classes
             machine.CurrentMoneyProvided -= cost;
             machine.Inventory[itemName] -= 1;
             decimal amountAfter = machine.CurrentMoneyProvided;
-            string logEntry = $"{itemName} {itemCode} {amountBefore} {amountAfter}";
+            string logEntry = $"{itemName} {itemCode} {cost} {amountAfter}";
             Log.WriteLog(logEntry);
             string messageToCustomer = $"Item: " + itemName + "\nPrice: " + cost + "\nMoney remaining: " + machine.CurrentMoneyProvided +
                 "\n" + machine.VendingMachineItems[itemCode].PrintMessage();
@@ -180,7 +191,7 @@ namespace Capstone.Classes
             return messageToCustomer;
         }
 
-        public decimal GiveChange(Machine machine)
+        public void GiveChange(Machine machine)
         {
             decimal amountBefore = machine.CurrentMoneyProvided;
             int change = (int)(machine.CurrentMoneyProvided * 100);
@@ -196,7 +207,6 @@ namespace Capstone.Classes
             string logEntry = $"GIVE CHANGE {amountBefore} {amountAfter}";
             Log.WriteLog(logEntry);
             Exit();
-            return machine.CurrentMoneyProvided;
         }
 
         public void Exit()

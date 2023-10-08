@@ -16,7 +16,8 @@ namespace CapstoneTests.Tests
         {
             // Arrange
             Machine sut = new Machine();
-
+            string inputFile = "A1|Potato Crisps|3.05|Chip\r\nA2|Stackers|1.45|Chip\r\nA3|Grain Waves|2.75|Chip\r\nA4|Cloud Popcorn|3.65|Chip\r\nB1|Moonpie|1.80|Candy\r\nB2|Cowtales|1.50|Candy\r\nB3|Wonka Bar|1.50|Candy\r\nB4|Crunchie|1.75|Candy\r\nC1|Cola|1.25|Drink\r\nC2|Dr. Salt|1.50|Drink\r\nC3|Mountain Melter|1.50|Drink\r\nC4|Heavy|1.50|Drink\r\nD1|U-Chews|0.85|Gum\r\nD2|Little League Chew|0.95|Gum\r\nD3|Chiclets|0.75|Gum\r\nD4|Triplemint|0.75|Gum\r\n";
+            Dictionary<string, Item> expected vendingMachineDict = { };
 
         }
 
