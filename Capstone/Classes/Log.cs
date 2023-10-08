@@ -18,9 +18,23 @@ namespace Capstone.Classes
             }
             catch (Exception)
             {
-
+                LogAnError("Unable to add event to the entry log");
             }
 
+        }
+
+        public static void LogAnError(string reason)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter("error.txt", true))
+                {
+                    sw.WriteLine($"{DateTime.UtcNow} {reason} local time {DateTime.Now}");
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
     }
