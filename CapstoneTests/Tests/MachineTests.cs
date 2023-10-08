@@ -104,6 +104,28 @@ namespace CapstoneTests.Tests
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
+        public void ReadInventoryInputOneItem()
+        {
+            Machine sut = new Machine();
+            string input = "A3|Grain Waves|2.75|Chip";
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Grain Waves", 2.75M);
+
+            expectedItemDict["A3"] = chipExpected;
+
+            expectedInventoryDict["Grain Waves"] = 5;
+
+            // Act
+            sut.ReadInventoryInput(input);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+        }
+
         [TestMethod]
 
         public void AddToDictionaryHappyPaths()
