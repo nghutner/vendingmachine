@@ -1,0 +1,16 @@
+A1|Pirates|3.45|Gum
+A2|Penguins|1.30|Gum
+A3|Steelers|3.70|Chip
+A4|Andy Warhol|1.70|Gum
+B1|Mac Miller|1.10|Candy
+B2|Wiz Khalifa|3.15|Candy
+B3|Gillian Jacobs|1.20|Chip
+B4|Mary Lou Williams|2.85|Gum
+C1|George Benson|1.95|Chip
+C2|Art Blakey|2.10|Drink
+C3|Ahmad Jamal|2.85|Candy
+C4|Billy Strayhorn|2.85|Candy
+D1|Roberto Clemente|1.30|Gum
+D2|Mario Lemieux|1.70|Drink
+D3|Steven Adams|1.75|Chip
+D4|Erroll Garner|1.60|Candy

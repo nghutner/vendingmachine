@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Classes;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 
 
 namespace CapstoneTests.Tests
@@ -16,43 +17,63 @@ namespace CapstoneTests.Tests
         {
             // Arrange
             Machine sut = new Machine();
-            string input1 = "A4|Cloud Popcorn|3.65|Chip \nB3|Wonka Bar|1.50|Candy \nC3|Mountain Melter|1.50|Drink \nD4|Triplemint|0.75|Gum";
-            string input2 = "A1|Potato Crisps|3.05|Chip \nB4|Crunchie|1.75|Candy \nC4|Heavy|1.50|Drink \nD1|U-Chews|0.85|Gum";
+            string input1 = "vendingmachine.csv";
+            string input2 = "happypaths.txt";
 
             Dictionary<string, Item> expectedItemDict1 = new Dictionary<string, Item>();
             Dictionary<string, Item> expectedItemDict2 = new Dictionary<string, Item>();
             Dictionary<string, int> expectedInventoryDict1 = new Dictionary<string, int>();
             Dictionary<string, int> expectedInventoryDict2 = new Dictionary<string, int>();
 
-            Chip chipExpected1 = new Chip("Cloud Popcorn", 3.65M);
-            Candy candyExpected1 = new Candy("Wonka Bar", 1.50M);
-            Drink drinkExpected1 = new Drink("Mountain Melter", 1.50M);
-            Gum gumExpected1 = new Gum("Triplemint", 0.75M);
-
-            Chip chipExpected2 = new Chip("Potato Crisps", 3.65M);
-            Candy candyExpected2 = new Candy("Crunchie", 1.75M);
-            Drink drinkExpected2 = new Drink("Heavy", 1.50M);
-            Gum gumExpected2 = new Gum("U-Chews", 0.85M);
-
-            expectedItemDict1["A4"] = chipExpected1;
-            expectedItemDict1["B3"] = candyExpected1;
-            expectedItemDict1["C3"] = drinkExpected1;
-            expectedItemDict1["D4"] = gumExpected1;
-
-            expectedItemDict2["A1"] = chipExpected2;
-            expectedItemDict2["B4"] = candyExpected2;
-            expectedItemDict2["C4"] = drinkExpected2;
-            expectedItemDict2["D1"] = gumExpected2;
-
-            expectedInventoryDict1["Cloud Popcorn"] = 5;
-            expectedInventoryDict1["Wonka Bar"] = 5;
-            expectedInventoryDict1["Mountain Melter"] = 5;
-            expectedInventoryDict1["Triplemint"] = 5;
-
+            //            A1 | Potato Crisps | 3.05 | Chip
+            Chip expectedChip1 = new Chip("Potato Crisps", 3.05M);
+            expectedItemDict1["A1"] = expectedChip1;
             expectedInventoryDict1["Potato Crisps"] = 5;
+            //A2 | Stackers | 1.45 | Chip
+            Chip expectedChip2 = new Chip("Stackers", 1.45M);
+            expectedItemDict1["A2"] = expectedChip2;
+            expectedInventoryDict1["Stackers"] = 5;
+            //A3 | Grain Waves | 2.75 | Chip
+            Chip expectedChip3 = new Chip("Grain Waves", 2.75M);
+            expectedItemDict1["A3"] = expectedChip3;
+            expectedInventoryDict1["Grain Waves"] = 5;
+            //A4 | Cloud Popcorn | 3.65 | Chip
+            Chip expectedChip4 = new Chip("Cloud Popcorn", 3.65M);
+            expectedItemDict1["A4"] = expectedChip4;
+            expectedInventoryDict1["Cloud Popcorn"] = 5;
+            //B1 | Moonpie | 1.80 | Candy
+            Candy expectedCandy1 = new Candy("Moonpie", 1.80M);
+            expectedItemDict1["B1"] = expectedCandy1;
+            expectedInventoryDict1["Moonpie"] = 5;
+            //B2 | Cowtales | 1.50 | Candy
+            Candy expectedCandy2 = new Candy("Cowtales", 1.50M);
+            expectedItemDict1["B2"] = expectedCandy2;
+            expectedInventoryDict1["Cowtales"] = 5;
+            //B3 | Wonka Bar | 1.50 | Candy
+            Candy expectedCandy3 = new Candy("Wonka Bar", 1.50M);
+            expectedItemDict1["B3"] = expectedCandy3;
+            expectedInventoryDict1["Wonka Bar"] = 5;
+            //B4 | Crunchie | 1.75 | Candy
+            Candy expectedCandy4 = new Candy("Crunchie", 1.75M);
+            expectedItemDict1["B4"] = expectedCandy4;
             expectedInventoryDict1["Crunchie"] = 5;
-            expectedInventoryDict1["Heavy"] = 5;
-            expectedInventoryDict1["U-Chews"] = 5;
+            //C1 | Cola | 1.25 | Drink
+            Drink expectedDrink1 = new Drink("Cola", 1.25M);
+            expectedItemDict1["C1"] = expectedDrink1;
+            expectedInventoryDict1["Cola"] = 5;
+            //C2 | Dr.Salt | 1.50 | Drink
+            Drink expectedDrink2 = new Drink("Dr. Salt", 1.50M);
+            expectedItemDict1["C2"] = expectedDrink2;
+            expectedInventoryDict1["Dr. Salt"] = 5;
+            //C3 | Mountain Melter | 1.50 | Drink
+            Drink expectedDrink3 = new Drink("Mountain Melter", 1.50M);
+            expectedItemDict1["C3"] = expectedDrink3;
+            expectedInventoryDict1["Mountain Melter"] = 5;
+            //C4 | Heavy | 1.50 | Drink
+            //D1 | U - Chews | 0.85 | Gum
+            //D2 | Little League Chew| 0.95 | Gum
+            //D3 | Chiclets | 0.75 | Gum
+            //D4 | Triplemint | 0.75 | Gum
 
             // Act
             sut.ReadInventoryInput(input1);
@@ -803,6 +824,20 @@ namespace CapstoneTests.Tests
             // Assert
             CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void DisplayVendingMachineItemsHappyPaths()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string input1 = "A4|Cloud Popcorn|3.65|Chip \nB3|Wonka Bar|1.50|Candy \nC3|Mountain Melter|1.50|Drink \nD4|Triplemint|0.75|Gum";
+            string input2 = "A1|Potato Crisps|3.05|Chip \nB4|Crunchie|1.75|Candy \nC4|Heavy|1.50|Drink \nD1|U-Chews|0.85|Gum";
+
+            // Act
+            sut.DisplayVendingMachineItems(input1);
+            sut.DisplayVendingMachineItems(input2);
         }
 
     }
