@@ -39,18 +39,18 @@ namespace Capstone.Classes
                         }
                         catch (Exception)
                         {
-
+                            Log.LogAnError("Unable to process input line");
                         }
                     }
                 }
             }
             catch (IOException)
             {
-
+                Log.LogAnError("IOException, Unable to read file.");
             }
             catch (Exception)
             {
-
+                Log.LogAnError("Non-IOException, unable to read file.");
             }
             return VendingMachineItems;
         }
@@ -97,7 +97,7 @@ namespace Capstone.Classes
                 }
                 catch (Exception)
                 {
-
+                    Log.LogAnError("Unable to parse input");
                 }
 
             }
@@ -126,6 +126,7 @@ namespace Capstone.Classes
                         catch
                         {
                             Console.WriteLine("Something went wrong.");
+                            Log.LogAnError("Error processing DisplayVendingMachineItems data");
                         }
 
                     }
@@ -133,7 +134,7 @@ namespace Capstone.Classes
             }
             catch
             {
-
+                Log.LogAnError("Unable to read file");
             }
             return allItems;
         }

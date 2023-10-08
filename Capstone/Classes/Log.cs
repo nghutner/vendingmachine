@@ -18,7 +18,7 @@ namespace Capstone.Classes
             }
             catch (Exception)
             {
-
+                LogAnError("Unable to add event to the entry log");
             }
 
         }
