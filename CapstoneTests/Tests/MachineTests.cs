@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Classes;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using System.Security.Cryptography;
 
 
 namespace CapstoneTests.Tests
@@ -70,10 +71,57 @@ namespace CapstoneTests.Tests
             expectedItemDict1["C3"] = expectedDrink3;
             expectedInventoryDict1["Mountain Melter"] = 5;
             //C4 | Heavy | 1.50 | Drink
+            Drink expectedDrink4 = new Drink("Heavy", 1.50M);
+            expectedItemDict1["C4"] = expectedDrink4;
+            expectedInventoryDict1["Heavy"] = 5;
             //D1 | U - Chews | 0.85 | Gum
+            Gum expectedGum1 = new Gum("U-Chews", 0.85M);
+            expectedItemDict1["D1"] = expectedGum1;
+            expectedInventoryDict1["U-Chews"] = 5;
             //D2 | Little League Chew| 0.95 | Gum
+            Gum expectedGum2 = new Gum("Little League Chew", 0.95M);
+            expectedItemDict1["D2"] = expectedGum2;
+            expectedInventoryDict1["Little League Chew"] = 5;
             //D3 | Chiclets | 0.75 | Gum
+            Gum expectedGum3 = new Gum("Chiclets", 0.75M);
+            expectedItemDict1["D3"] = expectedGum3;
+            expectedInventoryDict1["Chiclets"] = 5;
             //D4 | Triplemint | 0.75 | Gum
+            Gum expectedGum4 = new Gum("Triplemint", 0.75M);
+            expectedItemDict1["D4"] = expectedGum4;
+            expectedInventoryDict1["Triplemint"] = 5;
+
+            //            A1 | Pirates | 3.45 | Gum
+            Gum ExpectedGumPirates = new Gum("Pirates", 3.45M);
+            expectedItemDict2["A1"] = ExpectedGumPirates;
+            expectedInventoryDict2["Pirates"] = 5;
+            //A2 | Penguins | 1.30 | Gum
+            Gum ExpectedGumPenguins = new Gum("Penguins", 1.30M);
+            expectedItemDict2["A2"] = ExpectedGumPenguins;
+            expectedInventoryDict2["Penguins"] = 5;
+            //A3 | Steelers | 3.70 | Chip
+            Chip ExpectedChipSteelers = new Chip("Steelers", 3.70M);
+            expectedItemDict2["A3"] = ExpectedChipSteelers;
+            expectedInventoryDict2["Steelers"] = 5;
+            //A4 | Andy Warhol | 1.70 | Gum
+            Gum ExpectedGumWarhol = new Gum("Andy Warhol", 1.70M);
+            expectedItemDict2["A4"] = ExpectedGumWarhol;
+            expectedInventoryDict2["Andy Warhol"] = 5;
+            //B1 | Mac Miller | 1.10 | Candy
+            Candy ExpectedCandyMiller = new Candy("Mac Miller", 1.10M);
+            expectedItemDict2["B1"] = ExpectedCandyMiller;
+            expectedInventoryDict2["Mac Miller"] = 5;
+            //B2 | Wiz Khalifa | 3.15 | Candy
+            //B3 | Gillian Jacobs | 1.20 | Chip
+            //B4 | Mary Lou Williams| 2.85 | Gum
+            //C1 | George Benson | 1.95 | Chip
+            //C2 | Art Blakey | 2.10 | Drink
+            //C3 | Ahmad Jamal | 2.85 | Candy
+            //C4 | Billy Strayhorn | 2.85 | Candy
+            //D1 | Roberto Clemente | 1.30 | Gum
+            //D2 | Mario Lemieux | 1.70 | Drink
+            //D3 | Steven Adams | 1.75 | Chip
+            //D4 | Erroll Garner | 1.60 | Candy
 
             // Act
             sut.ReadInventoryInput(input1);
