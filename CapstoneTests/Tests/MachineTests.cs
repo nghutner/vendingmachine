@@ -507,17 +507,14 @@ namespace CapstoneTests.Tests
             Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
             Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
 
-            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
             Candy candyExpected = new Candy("Crunchy", 1.75M);
             Drink drinkExpected = new Drink("Cola", 1.25M);
             Gum gumExpected = new Gum("Triplemint", 0.75M);
 
-            expectedItemDict["A1"] = chipExpected;
             expectedItemDict["B4"] = candyExpected;
             expectedItemDict["C1"] = drinkExpected;
             expectedItemDict["D4"] = gumExpected;
 
-            expectedInventoryDict["Potato Crisps"] = 5;
             expectedInventoryDict["Crunchy"] = 5;
             expectedInventoryDict["Cola"] = 5;
             expectedInventoryDict["Triplemint"] = 5;
