@@ -263,7 +263,37 @@ namespace CapstoneTests.Tests
             Gum gumExpected = new Gum("Triplemint", 0.75M);
 
             expectedItemDict["A4"] = chipExpected;
-            expectedItemDict["B3"] = drinkExpected;
+            expectedItemDict["C3"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Cloud Popcorn"] = 5;
+            expectedInventoryDict["Wonka Bar"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.ReadInventoryInput(input);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void ReadInventoryInputNegativeValue()
+        {
+            Machine sut = new Machine();
+            string input = "A4|Cloud Popcorn|3.65|Chip \nB3|Wonka Bar|1.50|Candy \nC3|Mountain Melter|-1.50|Drink \nD4|Triplemint|0.75|Gum";
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Cloud Popcorn", 3.65M);
+            Candy candyExpected = new Candy("Wonka Bar", 1.50M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A4"] = chipExpected;
+            expectedItemDict["B3"] = candyExpected;
             expectedItemDict["D4"] = gumExpected;
 
             expectedInventoryDict["Cloud Popcorn"] = 5;
