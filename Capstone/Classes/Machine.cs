@@ -60,11 +60,11 @@ namespace Capstone.Classes
             if (
                 menuItemLine != null &&
                 menuItemLine.Length == 4 &&
-                Slots.Contains(menuItemLine[0]) &&
+                Slots.Contains(menuItemLine[0].ToUpper()) &&
                 !menuItemLine.Contains("") &&
                 !menuItemLine.Contains(null))
             {
-                VendingMachineItems[menuItemLine[0]] = null;
+                VendingMachineItems[menuItemLine[0].ToUpper()] = null;
                 Inventory[menuItemLine[1]] = MaxQuantity;
                 try
                 {
