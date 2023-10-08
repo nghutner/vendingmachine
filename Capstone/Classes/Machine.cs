@@ -30,7 +30,7 @@ namespace Capstone.Classes
                             if (
                                 inventoryInfo != null &&
                                 inventoryInfo.Length == 4 &&
-                                Slots.Contains(inventoryInfo[0]) &&
+                                Slots.Contains(inventoryInfo[0].ToUpper()) &&
                                 !inventoryInfo.Contains("") &&
                                 !inventoryInfo.Contains(null))
                             {
