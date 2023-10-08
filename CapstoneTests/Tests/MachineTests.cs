@@ -459,6 +459,37 @@ namespace CapstoneTests.Tests
 
         public void AddToDictionaryMissingItem()
         {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
 
         }
 
