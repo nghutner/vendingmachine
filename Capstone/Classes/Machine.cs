@@ -25,7 +25,7 @@ namespace Capstone.Classes
                     {
                         try
                         {
-                            string line = sr.ReadLine();
+                            string line = sr.ReadLine().Trim();
                             string[] inventoryInfo = line.Split('|');
                             if (
                                 inventoryInfo != null &&
