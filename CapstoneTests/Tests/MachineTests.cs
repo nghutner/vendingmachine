@@ -167,24 +167,24 @@ namespace CapstoneTests.Tests
             CollectionAssert.AreEquivalent(expectedInventoryDict2, sut.Inventory);
         }
 
-        //[TestMethod]
+        [TestMethod]
 
-        //public void ReadInventoryInputEmptyString()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string input1 = "";
+        public void ReadInventoryInputEmptyFile()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string input1 = "emptyfile.txt";
 
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
 
-        //    // Act
-        //    sut.ReadInventoryInput(input1);
+            // Act
+            sut.ReadInventoryInput(input1);
 
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
 
         //[TestMethod]
 
