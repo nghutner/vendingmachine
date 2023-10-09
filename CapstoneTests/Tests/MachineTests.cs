@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Classes;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Security.Cryptography;
+using System.Runtime.Intrinsics.X86;
 
 
 namespace CapstoneTests.Tests
@@ -194,6 +195,38 @@ namespace CapstoneTests.Tests
             Assert.AreEqual(expectedItemDict1["D3"].Price, sut1.VendingMachineItems["D3"].Price);
             Assert.AreEqual(expectedItemDict1["D4"].Name, sut1.VendingMachineItems["D4"].Name);
             Assert.AreEqual(expectedItemDict1["D4"].Price, sut1.VendingMachineItems["D4"].Price);
+
+            //            A1 | Potato Crisps | 3.05 | Chip
+            Assert.AreEqual(expectedInventoryDict1["Potato Crisps"], sut1.Inventory["Potato Crisps"]);
+            //A2 | Stackers | 1.45 | Chip
+            Assert.AreEqual(expectedInventoryDict1["Stackers"], sut1.Inventory["Stackers"]);
+            //A3 | Grain Waves | 2.75 | Chip
+            Assert.AreEqual(expectedInventoryDict1["Grain Waves"], sut1.Inventory["Grain Waves"]);
+            //A4 | Cloud Popcorn | 3.65 | Chip
+            Assert.AreEqual(expectedInventoryDict1["Cloud Popcorn"], sut1.Inventory["Cloud Popcorn"]);
+            //B1 | Moonpie | 1.80 | Candy
+            Assert.AreEqual(expectedInventoryDict1["Moonpie"], sut1.Inventory["Moonpie"]);
+            //B2 | Cowtales | 1.50 | Candy
+            Assert.AreEqual(expectedInventoryDict1["Cowtales"], sut1.Inventory["Cowtales"]);
+            //B3 | Wonka Bar | 1.50 | Candy
+            Assert.AreEqual(expectedInventoryDict1["Wonka Bar"], sut1.Inventory["Wonka Bar"]);
+            //B4 | Crunchie | 1.75 | Candy
+            Assert.AreEqual(expectedInventoryDict1["Crunchie"], sut1.Inventory["Crunchie"]);
+            //C1 | Cola | 1.25 | Drink
+            Assert.AreEqual(expectedInventoryDict1["Cola"], sut1.Inventory["Cola"]);
+            //C2 | Dr.Salt | 1.50 | Drink
+            Assert.AreEqual(expectedInventoryDict1["Dr.Salt"], sut1.Inventory["Dr.Salt"]);
+            //C3 | Mountain Melter | 1.50 | Drink
+            Assert.AreEqual(expectedInventoryDict1["Mountain Melter"], sut1.Inventory["Mountain Melter"]);
+            //C4 | Heavy | 1.50 | Drink
+            Assert.AreEqual(expectedInventoryDict1["Heavy"], sut1.Inventory["Heavy"]);
+            //D1 | U - Chews | 0.85 | Gum
+            Assert.AreEqual(expectedInventoryDict1["U - Chews"], sut1.Inventory["U - Chews"]);
+            //D2 | Little League Chew| 0.95 | Gum
+            Assert.AreEqual(expectedInventoryDict1["Little League Chew"], sut1.Inventory["Little League Chew"]);
+            //D3 | Chiclets | 0.75 | Gum
+            Assert.AreEqual(expectedInventoryDict1["Chiclets"], sut1.Inventory["Chiclets"]);
+            //D4 | Triplemint | 0.75 | Gum
 
             Assert.AreEqual(expectedItemDict2["A1"].Name, sut2.VendingMachineItems["A1"].Name);
             Assert.AreEqual(expectedItemDict2["A1"].Price, sut2.VendingMachineItems["A1"].Price);
