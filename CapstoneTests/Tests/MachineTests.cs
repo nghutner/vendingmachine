@@ -215,13 +215,13 @@ namespace CapstoneTests.Tests
             //C1 | Cola | 1.25 | Drink
             Assert.AreEqual(expectedInventoryDict1["Cola"], sut1.Inventory["Cola"]);
             //C2 | Dr.Salt | 1.50 | Drink
-            Assert.AreEqual(expectedInventoryDict1["Dr.Salt"], sut1.Inventory["Dr.Salt"]);
+            Assert.AreEqual(expectedInventoryDict1["Dr. Salt"], sut1.Inventory["Dr. Salt"]);
             //C3 | Mountain Melter | 1.50 | Drink
             Assert.AreEqual(expectedInventoryDict1["Mountain Melter"], sut1.Inventory["Mountain Melter"]);
             //C4 | Heavy | 1.50 | Drink
             Assert.AreEqual(expectedInventoryDict1["Heavy"], sut1.Inventory["Heavy"]);
             //D1 | U - Chews | 0.85 | Gum
-            Assert.AreEqual(expectedInventoryDict1["U - Chews"], sut1.Inventory["U - Chews"]);
+            Assert.AreEqual(expectedInventoryDict1["U-Chews"], sut1.Inventory["U-Chews"]);
             //D2 | Little League Chew| 0.95 | Gum
             Assert.AreEqual(expectedInventoryDict1["Little League Chew"], sut1.Inventory["Little League Chew"]);
             //D3 | Chiclets | 0.75 | Gum
@@ -344,28 +344,16 @@ namespace CapstoneTests.Tests
         //{
         //    // Arrange
         //    Machine sut = new Machine();
-        //    string input1 = "A4|Cloud Popcorn|3.65|Chip \nB3|Wonka Bar|0.00|Candy \nC3|Mountain Melter|1.50|Drink \nD4|Triplemint|0.75|Gum";
-        //    string input2 = "A1|Potato Crisps|3.05|Chip \nB4|Crunchie|1.75|Candy \nC4|Heavy|1.50|Drink \nD1|U-Chews|0.00|Gum";
+        //    string input = "zerodollaritem.txt";
 
-        //    Dictionary<string, Item> expectedItemDict1 = new Dictionary<string, Item>();
-        //    Dictionary<string, Item> expectedItemDict2 = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict1 = new Dictionary<string, int>();
-        //    Dictionary<string, int> expectedInventoryDict2 = new Dictionary<string, int>();
+        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
 
-        //    Chip chipExpected1 = new Chip("Cloud Popcorn", 3.65M);
-        //    Candy candyExpected1 = new Candy("Wonka Bar", 0.00M);
-        //    Drink drinkExpected1 = new Drink("Mountain Melter", 1.50M);
-        //    Gum gumExpected1 = new Gum("Triplemint", 0.75M);
-
-        //    Chip chipExpected2 = new Chip("Potato Crisps", 3.65M);
-        //    Candy candyExpected2 = new Candy("Crunchie", 1.75M);
-        //    Drink drinkExpected2 = new Drink("Heavy", 1.50M);
-        //    Gum gumExpected2 = new Gum("U-Chews", 0.00M);
+        //    Chip chipExpected = new Chip("Cloud Popcorn", 3.65M);
+        //    Candy candyExpected = new Candy("Wonka Bar", 0.00M);
 
         //    expectedItemDict1["A4"] = chipExpected1;
         //    expectedItemDict1["B3"] = candyExpected1;
-        //    expectedItemDict1["C3"] = drinkExpected1;
-        //    expectedItemDict1["D4"] = gumExpected1;
 
         //    expectedItemDict2["A1"] = chipExpected2;
         //    expectedItemDict2["B4"] = candyExpected2;
