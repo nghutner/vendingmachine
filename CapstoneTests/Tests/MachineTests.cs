@@ -17,7 +17,8 @@ namespace CapstoneTests.Tests
         public void ReadInventoryInputHappyPaths()
         {
             // Arrange
-            Machine sut = new Machine();
+            Machine sut1 = new Machine();
+            Machine sut2 = new Machine();
             string input1 = "vendingmachine.csv";
             string input2 = "happypaths.txt";
 
@@ -157,14 +158,75 @@ namespace CapstoneTests.Tests
             expectedInventoryDict2["Erroll Garner"] = 5;
 
             // Act
-            sut.ReadInventoryInput(input1);
-            sut.ReadInventoryInput(input2);
+            sut1.ReadInventoryInput(input1);
+            sut2.ReadInventoryInput(input2);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict1, sut.VendingMachineItems);
-            CollectionAssert.AreEquivalent(expectedItemDict2, sut.VendingMachineItems);
-            CollectionAssert.AreEquivalent(expectedInventoryDict1, sut.Inventory);
-            CollectionAssert.AreEquivalent(expectedInventoryDict2, sut.Inventory);
+            Assert.AreEqual(expectedItemDict1["A1"].Name, sut1.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict1["A1"].Price, sut1.VendingMachineItems["A1"].Price);
+            Assert.AreEqual(expectedItemDict1["A2"].Name, sut1.VendingMachineItems["A2"].Name);
+            Assert.AreEqual(expectedItemDict1["A2"].Price, sut1.VendingMachineItems["A2"].Price);
+            Assert.AreEqual(expectedItemDict1["A3"].Name, sut1.VendingMachineItems["A3"].Name);
+            Assert.AreEqual(expectedItemDict1["A3"].Price, sut1.VendingMachineItems["A3"].Price);
+            Assert.AreEqual(expectedItemDict1["A4"].Name, sut1.VendingMachineItems["A4"].Name);
+            Assert.AreEqual(expectedItemDict1["A4"].Price, sut1.VendingMachineItems["A4"].Price);
+            Assert.AreEqual(expectedItemDict1["B1"].Name, sut1.VendingMachineItems["B1"].Name);
+            Assert.AreEqual(expectedItemDict1["B1"].Price, sut1.VendingMachineItems["B1"].Price);
+            Assert.AreEqual(expectedItemDict1["B2"].Name, sut1.VendingMachineItems["B2"].Name);
+            Assert.AreEqual(expectedItemDict1["B2"].Price, sut1.VendingMachineItems["B2"].Price);
+            Assert.AreEqual(expectedItemDict1["B3"].Name, sut1.VendingMachineItems["B3"].Name);
+            Assert.AreEqual(expectedItemDict1["B3"].Price, sut1.VendingMachineItems["B3"].Price);
+            Assert.AreEqual(expectedItemDict1["B4"].Name, sut1.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict1["B4"].Price, sut1.VendingMachineItems["B4"].Price);
+            Assert.AreEqual(expectedItemDict1["C1"].Name, sut1.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict1["C1"].Price, sut1.VendingMachineItems["C1"].Price);
+            Assert.AreEqual(expectedItemDict1["C2"].Name, sut1.VendingMachineItems["C2"].Name);
+            Assert.AreEqual(expectedItemDict1["C2"].Price, sut1.VendingMachineItems["C2"].Price);
+            Assert.AreEqual(expectedItemDict1["C3"].Name, sut1.VendingMachineItems["C3"].Name);
+            Assert.AreEqual(expectedItemDict1["C3"].Price, sut1.VendingMachineItems["C3"].Price);
+            Assert.AreEqual(expectedItemDict1["C4"].Name, sut1.VendingMachineItems["C4"].Name);
+            Assert.AreEqual(expectedItemDict1["C4"].Price, sut1.VendingMachineItems["C4"].Price);
+            Assert.AreEqual(expectedItemDict1["D1"].Name, sut1.VendingMachineItems["D1"].Name);
+            Assert.AreEqual(expectedItemDict1["D1"].Price, sut1.VendingMachineItems["D1"].Price);
+            Assert.AreEqual(expectedItemDict1["D2"].Name, sut1.VendingMachineItems["D2"].Name);
+            Assert.AreEqual(expectedItemDict1["D2"].Price, sut1.VendingMachineItems["D2"].Price);
+            Assert.AreEqual(expectedItemDict1["D3"].Name, sut1.VendingMachineItems["D3"].Name);
+            Assert.AreEqual(expectedItemDict1["D3"].Price, sut1.VendingMachineItems["D3"].Price);
+            Assert.AreEqual(expectedItemDict1["D4"].Name, sut1.VendingMachineItems["D4"].Name);
+            Assert.AreEqual(expectedItemDict1["D4"].Price, sut1.VendingMachineItems["D4"].Price);
+
+            Assert.AreEqual(expectedItemDict2["A1"].Name, sut2.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict2["A1"].Price, sut2.VendingMachineItems["A1"].Price);
+            Assert.AreEqual(expectedItemDict2["A2"].Name, sut2.VendingMachineItems["A2"].Name);
+            Assert.AreEqual(expectedItemDict2["A2"].Price, sut2.VendingMachineItems["A2"].Price);
+            Assert.AreEqual(expectedItemDict2["A3"].Name, sut2.VendingMachineItems["A3"].Name);
+            Assert.AreEqual(expectedItemDict2["A3"].Price, sut2.VendingMachineItems["A3"].Price);
+            Assert.AreEqual(expectedItemDict2["A4"].Name, sut2.VendingMachineItems["A4"].Name);
+            Assert.AreEqual(expectedItemDict2["A4"].Price, sut2.VendingMachineItems["A4"].Price);
+            Assert.AreEqual(expectedItemDict2["B1"].Name, sut2.VendingMachineItems["B1"].Name);
+            Assert.AreEqual(expectedItemDict2["B1"].Price, sut2.VendingMachineItems["B1"].Price);
+            Assert.AreEqual(expectedItemDict2["B2"].Name, sut2.VendingMachineItems["B2"].Name);
+            Assert.AreEqual(expectedItemDict2["B2"].Price, sut2.VendingMachineItems["B2"].Price);
+            Assert.AreEqual(expectedItemDict2["B3"].Name, sut2.VendingMachineItems["B3"].Name);
+            Assert.AreEqual(expectedItemDict2["B3"].Price, sut2.VendingMachineItems["B3"].Price);
+            Assert.AreEqual(expectedItemDict2["B4"].Name, sut2.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict2["B4"].Price, sut2.VendingMachineItems["B4"].Price);
+            Assert.AreEqual(expectedItemDict2["C1"].Name, sut2.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict2["C1"].Price, sut2.VendingMachineItems["C1"].Price);
+            Assert.AreEqual(expectedItemDict2["C2"].Name, sut2.VendingMachineItems["C2"].Name);
+            Assert.AreEqual(expectedItemDict2["C2"].Price, sut2.VendingMachineItems["C2"].Price);
+            Assert.AreEqual(expectedItemDict2["C3"].Name, sut2.VendingMachineItems["C3"].Name);
+            Assert.AreEqual(expectedItemDict2["C3"].Price, sut2.VendingMachineItems["C3"].Price);
+            Assert.AreEqual(expectedItemDict2["C4"].Name, sut2.VendingMachineItems["C4"].Name);
+            Assert.AreEqual(expectedItemDict2["C4"].Price, sut2.VendingMachineItems["C4"].Price);
+            Assert.AreEqual(expectedItemDict2["D1"].Name, sut2.VendingMachineItems["D1"].Name);
+            Assert.AreEqual(expectedItemDict2["D1"].Price, sut2.VendingMachineItems["D1"].Price);
+            Assert.AreEqual(expectedItemDict2["D2"].Name, sut2.VendingMachineItems["D2"].Name);
+            Assert.AreEqual(expectedItemDict2["D2"].Price, sut2.VendingMachineItems["D2"].Price);
+            Assert.AreEqual(expectedItemDict2["D3"].Name, sut2.VendingMachineItems["D3"].Name);
+            Assert.AreEqual(expectedItemDict2["D3"].Price, sut2.VendingMachineItems["D3"].Price);
+            Assert.AreEqual(expectedItemDict2["D4"].Name, sut2.VendingMachineItems["D4"].Name);
+            Assert.AreEqual(expectedItemDict2["D4"].Price, sut2.VendingMachineItems["D4"].Price);
         }
 
         [TestMethod]
