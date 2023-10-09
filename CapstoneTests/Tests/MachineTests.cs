@@ -907,19 +907,33 @@ namespace CapstoneTests.Tests
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
-        //[TestMethod]
+        [TestMethod]
 
-        //public void DisplayVendingMachineItemsHappyPaths()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string input1 = "A4|Cloud Popcorn|3.65|Chip \nB3|Wonka Bar|1.50|Candy \nC3|Mountain Melter|1.50|Drink \nD4|Triplemint|0.75|Gum";
-        //    string input2 = "A1|Potato Crisps|3.05|Chip \nB4|Crunchie|1.75|Candy \nC4|Heavy|1.50|Drink \nD1|U-Chews|0.85|Gum";
+        public void DisplayVendingMachineItemsHappyPaths()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string input1 = "vendingmachine.csv";
+            string input2 = "happypaths.txt";
 
-        //    // Act
-        //    sut.DisplayVendingMachineItems(input1);
-        //    sut.DisplayVendingMachineItems(input2);
-        //}
+            string expected1 = "A1|Potato Crisps|3.05|Chip|In Stock: 5\r\nA2|Stackers|1.45|Chip|In Stock: 5\r\nA3|Grain Waves|2.75|Chip|In Stock: 5\r\nA4|Cloud Popcorn|3.65|Chip|In Stock: 5\r\n" +
+                "B1|Moonpie|1.80|Candy|In Stock: 5\r\nB2|Cowtales|1.50|Candy|In Stock: 5\r\nB3|Wonka Bar|1.50|Candy|In Stock: 5\r\nB4|Crunchie|1.75|Candy|In Stock: 5\r\n" +
+                "C1|Cola|1.25|Drink|In Stock: 5\r\nC2|Dr. Salt|1.50|Drink|In Stock: 5\r\nC3|Mountain Melter|1.50|Drink|In Stock: 5\r\nC4|Heavy|1.50|Drink|In Stock: 5\r\n" +
+                "D1|U-Chews|0.85|Gum|In Stock: 5\r\nD2|Little League Chew|0.95|Gum|In Stock: 5\r\nD3|Chiclets|0.75|Gum|In Stock: 5\r\nD4|Triplemint|0.75|Gum|In Stock: 5";
+
+            string expected2 = "A1|Pirates|3.45|Gum|In Stock: 5\r\nA2|Penguins|1.30|Gum|In Stock: 5\r\nA3|Steelers|3.70|Chip|In Stock: 5\r\nA4|Andy Warhol|1.70|Gum|In Stock: 5\r\n" +
+                "B1|Mac Miller|1.10|Candy|In Stock: 5\r\nB2|Wiz Khalifa|3.15|Candy|In Stock: 5\r\nB3|Gillian Jacobs|1.20|Chip|In Stock: 5\r\nB4|Mary Lou Williams|2.85|Gum|In Stock: 5\r\n" +
+                "C1|George Benson|1.95|Chip\r\nC2|Art Blakey|2.10|Drink\r\nC3|Ahmad Jamal|2.85|Candy\r\nC4|Billy Strayhorn|2.85|Candy\r\n" +
+                "D1|Roberto Clemente|1.30|Gum|In Stock: 5\r\nD2|Mario Lemieux|1.70|Drink|In Stock: 5\r\nD3|Steven Adams|1.75|Chip|In Stock: 5\r\nD4|Erroll Garner|1.60|Candy|In Stock: 5";
+
+            // Act
+            string actual1 = sut.DisplayVendingMachineItems(input1);
+            string actual2 = sut.DisplayVendingMachineItems(input2);
+
+            // Assert
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+        }
 
     }
 }
