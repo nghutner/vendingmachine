@@ -260,6 +260,39 @@ namespace CapstoneTests.Tests
             Assert.AreEqual(expectedItemDict2["D3"].Price, sut2.VendingMachineItems["D3"].Price);
             Assert.AreEqual(expectedItemDict2["D4"].Name, sut2.VendingMachineItems["D4"].Name);
             Assert.AreEqual(expectedItemDict2["D4"].Price, sut2.VendingMachineItems["D4"].Price);
+
+            //            A1 | Pirates | 3.45 | Gum
+            Assert.AreEqual(expectedInventoryDict2["Pirates"], sut1.Inventory["Pirates"]);
+            //A2 | Penguins | 1.30 | Gum
+            Assert.AreEqual(expectedInventoryDict2["Penguins"], sut1.Inventory["Penguins"]);
+            //A3 | Steelers | 3.70 | Chip
+            Assert.AreEqual(expectedInventoryDict2["Steelers"], sut1.Inventory["Steelers"]);
+            //A4 | Andy Warhol | 1.70 | Gum
+            Assert.AreEqual(expectedInventoryDict2["Andy Warhol"], sut1.Inventory["Andy Warhol"]);
+            //B1 | Mac Miller | 1.10 | Candy
+            Assert.AreEqual(expectedInventoryDict2["Mac Miller"], sut1.Inventory["Mac Miller"]);
+            //B2 | Wiz Khalifa | 3.15 | Candy
+            Assert.AreEqual(expectedInventoryDict2["Wiz Khalifa"], sut1.Inventory["Wiz Khalifa"]);
+            //B3 | Gillian Jacobs | 1.20 | Chip
+            Assert.AreEqual(expectedInventoryDict2["Gillian Jacobs"], sut1.Inventory["Gillian Jacobs"]);
+            //B4 | Mary Lou Williams| 2.85 | Gum
+            Assert.AreEqual(expectedInventoryDict2["Mary Lou Williams"], sut1.Inventory["Mary Lou Williams"]);
+            //C1 | George Benson | 1.95 | Chip
+            Assert.AreEqual(expectedInventoryDict2["George Benson"], sut1.Inventory["George Benson"]);
+            //C2 | Art Blakey | 2.10 | Drink
+            Assert.AreEqual(expectedInventoryDict2["Art Blakey"], sut1.Inventory["Art Blakey"]);
+            //C3 | Ahmad Jamal | 2.85 | Candy
+            Assert.AreEqual(expectedInventoryDict2["Ahmad Jamal"], sut1.Inventory["Ahmad Jamal"]);
+            //C4 | Billy Strayhorn | 2.85 | Candy
+            Assert.AreEqual(expectedInventoryDict2["Billy Strayhorn"], sut1.Inventory["Billy Strayhorn"]);
+            //D1 | Roberto Clemente | 1.30 | Gum
+            Assert.AreEqual(expectedInventoryDict2["Roberto Clemente"], sut1.Inventory["Roberto Clemente"]);
+            //D2 | Mario Lemieux | 1.70 | Drink
+            Assert.AreEqual(expectedInventoryDict2["Mario Lemieux"], sut1.Inventory["Mario Lemieux"]);
+            //D3 | Steven Adams | 1.75 | Chip
+            Assert.AreEqual(expectedInventoryDict2["Steven Adams"], sut1.Inventory["Steven Adams"]);
+            //D4 | Erroll Garner | 1.60 | Candy
+            Assert.AreEqual(expectedInventoryDict2["Erroll Garner"], sut1.Inventory["Erroll Garner"]);
         }
 
         [TestMethod]
