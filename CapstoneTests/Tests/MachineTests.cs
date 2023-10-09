@@ -935,5 +935,21 @@ namespace CapstoneTests.Tests
             Assert.AreEqual(expected2, actual2);
         }
 
+        [TestMethod]
+
+        public void DisplayVendingMachineEmptyFile()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string input = "emtpyfile.txt";
+            string expected = "";
+
+            // Act
+            string actual = sut.DisplayVendingMachineItems(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
