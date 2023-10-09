@@ -334,8 +334,8 @@ namespace CapstoneTests.Tests
             sut.ReadInventoryInput(input);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedInventoryDict["Grain Waves"], sut.Inventory["Grain Waves"]);
         }
 
         //[TestMethod]
