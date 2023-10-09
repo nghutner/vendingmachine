@@ -188,25 +188,6 @@ namespace CapstoneTests.Tests
 
         //[TestMethod]
 
-        //public void ReadInventoryInputNull()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string input1 = null;
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    // Act
-        //    sut.ReadInventoryInput(input1);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
         //public void ReadInventoryInputOneItem()
         //{
         //    Machine sut = new Machine();
@@ -937,7 +918,7 @@ namespace CapstoneTests.Tests
 
         [TestMethod]
 
-        public void DisplayVendingMachineEmptyFile()
+        public void DisplayVendingMachineItemsEmptyFile()
         {
             // Arrange
             Machine sut = new Machine();
