@@ -466,446 +466,446 @@ namespace CapstoneTests.Tests
 
         //}
 
-        //[TestMethod]
-
-        //public void AddToDictionaryHappyPaths()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryEmptyArray()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryOneItem()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input = { "A1", "Potato Crisps", "3.05", "Chip" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryNullArray()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = null;
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryExtraItem()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip", "SOLD OUT" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryMissingItem()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryEmptyString()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryNullString()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { null, "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryZeroValue()
-        //{
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "0.00", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 0.00M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryNegativeValue()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "-1.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryLargeValues()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "A1", "Potato Crisps", "2303.05", "Chip" };
-        //    string[] input2 = { "B4", "Crunchy", "3_223_101.75", "Candy" };
-        //    string[] input3 = { "C1", "Cola", "11.25", "Drink" };
-        //    string[] input4 = { "D4", "Triplemint", "100.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 2303.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 3_223_101.75M);
-        //    Drink drinkExpected = new Drink("Cola", 11.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 100.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
-
-        //[TestMethod]
-
-        //public void AddToDictionaryLowercaseItemCode()
-        //{
-        //    // Arrange
-        //    Machine sut = new Machine();
-        //    string[] input1 = { "a1", "Potato Crisps", "3.05", "Chip" };
-        //    string[] input2 = { "b4", "Crunchy", "1.75", "Candy" };
-        //    string[] input3 = { "c1", "Cola", "1.25", "Drink" };
-        //    string[] input4 = { "d4", "Triplemint", "0.75", "Gum" };
-
-        //    Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
-        //    Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
-
-        //    Chip chipExpected = new Chip("Potato Crisps", 3.05M);
-        //    Candy candyExpected = new Candy("Crunchy", 1.75M);
-        //    Drink drinkExpected = new Drink("Cola", 1.25M);
-        //    Gum gumExpected = new Gum("Triplemint", 0.75M);
-
-        //    expectedItemDict["A1"] = chipExpected;
-        //    expectedItemDict["B4"] = candyExpected;
-        //    expectedItemDict["C1"] = drinkExpected;
-        //    expectedItemDict["D4"] = gumExpected;
-
-        //    expectedInventoryDict["Potato Crisps"] = 5;
-        //    expectedInventoryDict["Crunchy"] = 5;
-        //    expectedInventoryDict["Cola"] = 5;
-        //    expectedInventoryDict["Triplemint"] = 5;
-
-        //    // Act
-        //    sut.AddToDictionary(input1);
-        //    sut.AddToDictionary(input2);
-        //    sut.AddToDictionary(input3);
-        //    sut.AddToDictionary(input4);
-
-        //    // Assert
-        //    CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
-        //    CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
-        //}
+        [TestMethod]
+
+        public void AddToDictionaryHappyPaths()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryEmptyArray()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryOneItem()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input = { "A1", "Potato Crisps", "3.05", "Chip" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+
+            expectedItemDict["A1"] = chipExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+
+            // Act
+            sut.AddToDictionary(input);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryNullArray()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = null;
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryExtraItem()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip", "SOLD OUT" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryMissingItem()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryEmptyString()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryNullString()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "1.25", "Drink" };
+            string[] input4 = { null, "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryZeroValue()
+        {
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "0.00", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 0.00M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryNegativeValue()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "-1.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryLargeValues()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "A1", "Potato Crisps", "2303.05", "Chip" };
+            string[] input2 = { "B4", "Crunchy", "3_223_101.75", "Candy" };
+            string[] input3 = { "C1", "Cola", "11.25", "Drink" };
+            string[] input4 = { "D4", "Triplemint", "100.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 2303.05M);
+            Candy candyExpected = new Candy("Crunchy", 3_223_101.75M);
+            Drink drinkExpected = new Drink("Cola", 11.25M);
+            Gum gumExpected = new Gum("Triplemint", 100.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
+
+        [TestMethod]
+
+        public void AddToDictionaryLowercaseItemCode()
+        {
+            // Arrange
+            Machine sut = new Machine();
+            string[] input1 = { "a1", "Potato Crisps", "3.05", "Chip" };
+            string[] input2 = { "b4", "Crunchy", "1.75", "Candy" };
+            string[] input3 = { "c1", "Cola", "1.25", "Drink" };
+            string[] input4 = { "d4", "Triplemint", "0.75", "Gum" };
+
+            Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
+            Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
+
+            Chip chipExpected = new Chip("Potato Crisps", 3.05M);
+            Candy candyExpected = new Candy("Crunchy", 1.75M);
+            Drink drinkExpected = new Drink("Cola", 1.25M);
+            Gum gumExpected = new Gum("Triplemint", 0.75M);
+
+            expectedItemDict["A1"] = chipExpected;
+            expectedItemDict["B4"] = candyExpected;
+            expectedItemDict["C1"] = drinkExpected;
+            expectedItemDict["D4"] = gumExpected;
+
+            expectedInventoryDict["Potato Crisps"] = 5;
+            expectedInventoryDict["Crunchy"] = 5;
+            expectedInventoryDict["Cola"] = 5;
+            expectedInventoryDict["Triplemint"] = 5;
+
+            // Act
+            sut.AddToDictionary(input1);
+            sut.AddToDictionary(input2);
+            sut.AddToDictionary(input3);
+            sut.AddToDictionary(input4);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
+        }
 
         //[TestMethod]
 
