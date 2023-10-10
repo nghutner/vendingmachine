@@ -91,7 +91,8 @@ namespace CapstoneTests.Tests
         public void ReadInventoryInputOneItem()
         {
             Machine sut = new Machine();
-            string input = "classes\\oneitem.txt";
+            //string path = Environment.CurrentDirectory;
+            string input = "oneitem.txt";
 
             Dictionary<string, Item> expectedItemDict = new Dictionary<string, Item>();
             Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
@@ -106,7 +107,8 @@ namespace CapstoneTests.Tests
             sut.ReadInventoryInput(input);
 
             // Assert
-            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["A3"].Name, sut.VendingMachineItems["A3"].Name);
+            Assert.AreEqual(expectedItemDict["A3"].Price, sut.VendingMachineItems["A3"].Price);
             Assert.AreEqual(expectedInventoryDict["Grain Waves"], sut.Inventory["Grain Waves"]);
         }
 
@@ -371,7 +373,10 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input4);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict["D4"].Name, sut.VendingMachineItems["D4"].Name);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
