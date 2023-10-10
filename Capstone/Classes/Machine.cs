@@ -57,49 +57,59 @@ namespace Capstone.Classes
 
         public Dictionary<string, Item> AddToDictionary(string[] menuItemLine)
         {
-            if (
+            try
+            {
+                if (
                 menuItemLine != null &&
                 menuItemLine.Length == 4 &&
                 Slots.Contains(menuItemLine[0].ToUpper()) &&
                 !menuItemLine.Contains("") &&
                 !menuItemLine.Contains(null))
+                {
+                    VendingMachineItems[menuItemLine[0].ToUpper()] = null;
+                    Inventory[menuItemLine[1]] = MaxQuantity;
+                    try
+                    {
+                        decimal price = decimal.Parse(menuItemLine[2]);
+                        if (
+                            price < 0.00M)
+                        {
+
+                        }
+                        else if (menuItemLine[menuItemLine.Length - 1] == "Chip")
+                        {
+                            Chip newChip = new Chip(menuItemLine[1], price);
+                            VendingMachineItems[menuItemLine[0]] = newChip;
+                        }
+                        else if (menuItemLine[menuItemLine.Length - 1] == "Candy")
+                        {
+                            Candy newCandy = new Candy(menuItemLine[1], price);
+                            VendingMachineItems[menuItemLine[0]] = newCandy;
+                        }
+                        else if (menuItemLine[menuItemLine.Length - 1] == "Gum")
+                        {
+                            Gum newGum = new Gum(menuItemLine[1], price);
+                            VendingMachineItems[menuItemLine[0]] = newGum;
+                        }
+                        else if (menuItemLine[menuItemLine.Length - 1] == "Drink")
+                        {
+                            Drink newDrink = new Drink(menuItemLine[1], price);
+                            VendingMachineItems[menuItemLine[0]] = newDrink;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Log.LogAnError("Unable to parse input");
+                    }
+                }
+            }
+            catch (NullReferenceException)
             {
-                VendingMachineItems[menuItemLine[0].ToUpper()] = null;
-                Inventory[menuItemLine[1]] = MaxQuantity;
-                try
-                {
-                    decimal price = decimal.Parse(menuItemLine[2]);
-                    if (
-                        price < 0.00M)
-                    {
-
-                    }
-                    else if (menuItemLine[menuItemLine.Length - 1] == "Chip")
-                    {
-                        Chip newChip = new Chip(menuItemLine[1], price);
-                        VendingMachineItems[menuItemLine[0]] = newChip;
-                    }
-                    else if (menuItemLine[menuItemLine.Length - 1] == "Candy")
-                    {
-                        Candy newCandy = new Candy(menuItemLine[1], price);
-                        VendingMachineItems[menuItemLine[0]] = newCandy;
-                    }
-                    else if (menuItemLine[menuItemLine.Length - 1] == "Gum")
-                    {
-                        Gum newGum = new Gum(menuItemLine[1], price);
-                        VendingMachineItems[menuItemLine[0]] = newGum;
-                    }
-                    else if (menuItemLine[menuItemLine.Length - 1] == "Drink")
-                    {
-                        Drink newDrink = new Drink(menuItemLine[1], price);
-                        VendingMachineItems[menuItemLine[0]] = newDrink;
-                    }
-                }
-                catch (Exception)
-                {
-                    Log.LogAnError("Unable to parse input");
-                }
-
+                Log.LogAnError("null item in array");
+            }
+            catch (Exception)
+            {
+                Log.LogAnError("non-NullReference exception");
             }
             return VendingMachineItems;
         }

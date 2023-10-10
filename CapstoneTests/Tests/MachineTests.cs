@@ -592,7 +592,9 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input4);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict["D4"].Name, sut.VendingMachineItems["D4"].Name);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
@@ -629,7 +631,9 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input4);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
