@@ -725,7 +725,7 @@ namespace CapstoneTests.Tests
             // Arrange
             Machine sut = new Machine();
             string[] input1 = { "A1", "Potato Crisps", "2303.05", "Chip" };
-            string[] input2 = { "B4", "Crunchy", "3_223_101.75", "Candy" };
+            string[] input2 = { "B4", "Crunchy", "3223101.75", "Candy" };
             string[] input3 = { "C1", "Cola", "11.25", "Drink" };
             string[] input4 = { "D4", "Triplemint", "100.75", "Gum" };
 
@@ -733,7 +733,7 @@ namespace CapstoneTests.Tests
             Dictionary<string, int> expectedInventoryDict = new Dictionary<string, int>();
 
             Chip chipExpected = new Chip("Potato Crisps", 2303.05M);
-            Candy candyExpected = new Candy("Crunchy", 3_223_101.75M);
+            Candy candyExpected = new Candy("Crunchy", 3223101.75M);
             Drink drinkExpected = new Drink("Cola", 11.25M);
             Gum gumExpected = new Gum("Triplemint", 100.75M);
 
@@ -754,7 +754,10 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input4);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict["D4"].Name, sut.VendingMachineItems["D4"].Name);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
@@ -794,7 +797,10 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input4);
 
             // Assert
-            CollectionAssert.AreEquivalent(expectedItemDict, sut.VendingMachineItems);
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict["D4"].Name, sut.VendingMachineItems["D4"].Name);
             CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 

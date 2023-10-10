@@ -66,7 +66,8 @@ namespace Capstone.Classes
                 !menuItemLine.Contains("") &&
                 !menuItemLine.Contains(null))
                 {
-                    VendingMachineItems[menuItemLine[0].ToUpper()] = null;
+                    string itemCodeCorrectCase = menuItemLine[0].ToUpper();
+                    VendingMachineItems[itemCodeCorrectCase] = null;
                     try
                     {
                         decimal price = decimal.Parse(menuItemLine[2]);
@@ -80,22 +81,22 @@ namespace Capstone.Classes
                             if (menuItemLine[menuItemLine.Length - 1] == "Chip")
                             {
                                 Chip newChip = new Chip(menuItemLine[1], price);
-                                VendingMachineItems[menuItemLine[0]] = newChip;
+                                VendingMachineItems[itemCodeCorrectCase] = newChip;
                             }
                             else if (menuItemLine[menuItemLine.Length - 1] == "Candy")
                             {
                                 Candy newCandy = new Candy(menuItemLine[1], price);
-                                VendingMachineItems[menuItemLine[0]] = newCandy;
+                                VendingMachineItems[itemCodeCorrectCase] = newCandy;
                             }
                             else if (menuItemLine[menuItemLine.Length - 1] == "Gum")
                             {
                                 Gum newGum = new Gum(menuItemLine[1], price);
-                                VendingMachineItems[menuItemLine[0]] = newGum;
+                                VendingMachineItems[itemCodeCorrectCase] = newGum;
                             }
                             else if (menuItemLine[menuItemLine.Length - 1] == "Drink")
                             {
                                 Drink newDrink = new Drink(menuItemLine[1], price);
-                                VendingMachineItems[menuItemLine[0]] = newDrink;
+                                VendingMachineItems[itemCodeCorrectCase] = newDrink;
                             }
                         }
                             
