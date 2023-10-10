@@ -670,6 +670,13 @@ namespace CapstoneTests.Tests
             sut.AddToDictionary(input2);
             sut.AddToDictionary(input3);
             sut.AddToDictionary(input4);
+
+            // Assert
+            Assert.AreEqual(expectedItemDict["A1"].Name, sut.VendingMachineItems["A1"].Name);
+            Assert.AreEqual(expectedItemDict["B4"].Name, sut.VendingMachineItems["B4"].Name);
+            Assert.AreEqual(expectedItemDict["C1"].Name, sut.VendingMachineItems["C1"].Name);
+            Assert.AreEqual(expectedItemDict["D4"].Name, sut.VendingMachineItems["D4"].Name);
+            CollectionAssert.AreEquivalent(expectedInventoryDict, sut.Inventory);
         }
 
         [TestMethod]
