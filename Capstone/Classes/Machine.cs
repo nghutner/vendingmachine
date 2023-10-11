@@ -12,8 +12,8 @@ namespace Capstone.Classes
         public const string InputFile = "vendingmachine.csv";
         public string[] Slots = { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4" };
 
-        public Dictionary<string, Item> VendingMachineItems { get; set; } = new Dictionary<string, Item>();
-        public Dictionary<string, int> Inventory { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, Item> VendingMachineItems { get; private set; } = new Dictionary<string, Item>();
+        public Dictionary<string, int> Inventory { get; private set; } = new Dictionary<string, int>();
         public decimal CurrentMoneyProvided { get; set; } = 0.00M;
         public Dictionary<string, Item> ReadInventoryInput(string inputFile)
         {

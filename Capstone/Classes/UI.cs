@@ -9,7 +9,7 @@ namespace Capstone.Classes
 {
     public class UI
     {
-        public const string InputFile = "vendingmachine.csv";
+        private const string InputFile = "vendingmachine.csv";
 
         public const string MainMenu = "1. Display vending machine items \n2. Purchase \n3. Exit";
         public const string PurchaseMenu = "1. Feed Money \n2. Select Product \n3. Finish Transaction";
