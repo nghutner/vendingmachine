@@ -22,6 +22,7 @@ namespace Capstone.Classes
             if (choice == "1")
             {
                 Console.WriteLine(thisMachine.DisplayVendingMachineItems(InputFile));
+                Console.WriteLine();
                 Purchase(thisMachine);
             }
             else if (choice == "2")
@@ -37,6 +38,7 @@ namespace Capstone.Classes
         public string Purchase(Machine machine)
         {
             Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
+            Console.WriteLine();
             string purchaseChoice = GetChoice(PurchaseMenu);
 
             if (purchaseChoice == "1")
@@ -75,11 +77,13 @@ namespace Capstone.Classes
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Sorry, an error occurred."); 
+                    Console.WriteLine("Sorry, an error occurred.");
+                    Console.WriteLine();
                 }
-                if(moneyFedInt <= 0)   //negative or no valid input- go back to the top of the loop
+                if (moneyFedInt <= 0)   //negative or no valid input- go back to the top of the loop
                 {
                     Console.WriteLine("Invalid input.");
+                    Console.WriteLine();
                     choice = "1";
                 }
                 else   //valid money input
@@ -90,6 +94,7 @@ namespace Capstone.Classes
                     string logEntry = $"FEED MONEY: {moneyFedDecimal} {amountAfter}";
                     Log.WriteLog(logEntry);
                     Console.WriteLine($"Current money provided: {machine.CurrentMoneyProvided}");
+                    Console.WriteLine();
                     choice = GetChoice(PurchaseMenu);
                 }
                 
@@ -111,6 +116,7 @@ namespace Capstone.Classes
         {
             Console.WriteLine("Please select from the following:");
             Console.WriteLine(menu);
+            Console.WriteLine();
             string choice = "";
             do
             {
@@ -127,6 +133,7 @@ namespace Capstone.Classes
         public string SelectProduct(Machine machine)
         {
             Console.WriteLine(machine.DisplayVendingMachineItems(InputFile));
+            Console.WriteLine();
             if (machine.CurrentMoneyProvided <= 0.00M)
             {
                 Console.WriteLine("Current balance is $0.00. Please add more money.");
@@ -164,6 +171,7 @@ namespace Capstone.Classes
                 if (machine.Inventory[itemName] == 0)
                 {
                     Console.WriteLine("That item is sold out. Please select a different item.");
+                    Console.WriteLine();
                     SelectProduct(machine);
                 }
             }
@@ -178,6 +186,7 @@ namespace Capstone.Classes
             if (machine.CurrentMoneyProvided < cost)
             {
                 Console.WriteLine("You do not have enough money to purchase this item.");
+                Console.WriteLine();
                 GetMoney(machine);
             }
             machine.CurrentMoneyProvided -= cost;
@@ -188,6 +197,7 @@ namespace Capstone.Classes
             string messageToCustomer = $"Item: " + itemName + "\nPrice: " + cost + "\nMoney remaining: " + machine.CurrentMoneyProvided +
                 "\n" + machine.VendingMachineItems[itemCode].PrintMessage();
             Console.WriteLine(messageToCustomer);
+            Console.WriteLine();
             return messageToCustomer;
         }
 
