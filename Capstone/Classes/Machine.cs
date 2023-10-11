@@ -10,7 +10,6 @@ namespace Capstone.Classes
     {
         const int MaxQuantity = 5;
         public const string InputFile = "vendingmachine.csv";
-        public string[] Slots = { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4" };
 
         public Dictionary<string, Item> VendingMachineItems { get; private set; } = new Dictionary<string, Item>();
         public Dictionary<string, int> Inventory { get; private set; } = new Dictionary<string, int>();
@@ -30,7 +29,6 @@ namespace Capstone.Classes
                             if (
                                 inventoryInfo != null &&
                                 inventoryInfo.Length == 4 &&
-                                Slots.Contains(inventoryInfo[0].ToUpper()) &&
                                 !inventoryInfo.Contains("") &&
                                 !inventoryInfo.Contains(null))
                             {
@@ -62,7 +60,6 @@ namespace Capstone.Classes
                 if (
                 menuItemLine != null &&
                 menuItemLine.Length == 4 &&
-                Slots.Contains(menuItemLine[0].ToUpper()) &&
                 !menuItemLine.Contains("") &&
                 !menuItemLine.Contains(null))
                 {
