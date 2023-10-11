@@ -868,8 +868,8 @@ namespace CapstoneTests.Tests
             string actual2 = sut2.DisplayVendingMachineItems(input2);
 
             // Assert
-            Assert.AreEqual(expected1.Trim(), actual1.Trim());
-            Assert.AreEqual(expected2.Trim(), actual2.Trim());
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
         }
 
         [TestMethod]
