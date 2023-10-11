@@ -133,7 +133,7 @@ namespace Capstone.Classes
                             string displayLine = $"{line}|In Stock: {Inventory[lineArray[1]]} \n";
                             if (Inventory[lineArray[1]] == 0)
                             {
-                                displayLine += "| SOLD OUT";
+                                displayLine += "| SOLD OUT\n";
                             }
                             allItems += displayLine;
                         }
