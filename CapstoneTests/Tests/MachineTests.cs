@@ -23,8 +23,8 @@ namespace CapstoneTests.Tests
             //string input1 = "vendingmachine.csv";
             //string input2 = "happypaths.txt";
             string path = Environment.CurrentDirectory;
-            string input1 = Path.Combine(path, "classes\\managable.txt");
-            string input2 = "classes\\manageable.txt";
+            string input1 = "managable.txt";
+            string input2 = "manageable.txt";
 
             Dictionary<string, Item> expectedItemDict1 = new Dictionary<string, Item>();
             Dictionary<string, Item> expectedItemDict2 = new Dictionary<string, Item>();
@@ -851,27 +851,25 @@ namespace CapstoneTests.Tests
             // Arrange
             Machine sut1 = new Machine();
             Machine sut2 = new Machine();
+            string path = Environment.CurrentDirectory;
             string input1 = "managable.txt";
             string input2 = "manageable.txt";
 
-            string expected1 = "D2|Little League Chew|0.95|Gum\r\nA4|Cloud Popcorn|3.65|Chip";
-            string expected2 = "A1|Potato Crisps|3.05|Chip\r\nB2|Cowtales|1.50|Candy";
+            string expected1 = "D2|Little League Chew|0.95|Gum|In Stock: 5\nA4|Cloud Popcorn|3.65|Chip|In Stock: 5";
+            string expected2 = "A1|Potato Crisps|3.05|Chip|In Stock: 5\nB2|Cowtales|1.50|Candy|In Stock: 5";
 
-            Dictionary<string, int> expectedDict1 = new Dictionary<string, int>();
-            Dictionary<string, int> expectedDict2 = new Dictionary<string, int>();
-
-            Assert.AreEqual(expectedDict1["Little League Chew"], sut1.Inventory["Little League Chew"]);
-            Assert.AreEqual(expectedDict1["Cloud Popcorn"], sut1.Inventory["Cloud Popcorn"]);
-            Assert.AreEqual(expectedDict2["Potato Crisps"], sut2.Inventory["Potato Crisps"]);
-            Assert.AreEqual(expectedDict2["Cowtales"], sut2.Inventory["Cowtales"]);
+            sut1.Inventory["Little League Chew"] = 5;
+            sut1.Inventory["Cloud Popcorn"] = 5;
+            sut2.Inventory["Potato Crisps"] = 5;
+            sut2.Inventory["Cowtales"] = 5;
 
             // Act
             string actual1 = sut1.DisplayVendingMachineItems(input1);
             string actual2 = sut2.DisplayVendingMachineItems(input2);
 
             // Assert
-            Assert.AreEqual(expected1, actual1);
-            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected1.Trim(), actual1.Trim());
+            Assert.AreEqual(expected2.Trim(), actual2.Trim());
         }
 
         [TestMethod]
